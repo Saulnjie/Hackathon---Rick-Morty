@@ -1,4 +1,4 @@
-[
+var characters = [
 	{
 		id: 1,
 		name: 'Rick Sanchez',
@@ -742,3 +742,44 @@
 		url: 'https://rickandmortyapi.com/api/character/20',
 	},
 ];
+
+// var rickAndMortyName = document.querySelector('h2');
+// var bodyElement = document.querySelector('body');
+// var img = document.querySelector('img');
+// var rickAndMortyStatus = document.querySelector('p');
+
+// function drawHtml(rickAndMortyArray) {
+//   for (var i = 0; i < rickAndMortyArray.length; i++) {
+// 		document.querySelector('.container').innerHTML +=
+//       '<div class="card"><h2>' +
+//       rickAndMortyArray[i].name +
+//       '</h2><p>' +
+//       rickAndMortyArray[i].status +
+//       '</p><p>' +
+//       rickAndMortyArray[i].species +
+//       '</p><img class="cardimg" src="' +
+//       rickAndMortyArray[i].image +
+//       '"></div>';
+//   }
+//   if (rickAndMortyArray.status === 'alive')
+//   rickAndMortyStatus.style = bodyBgColor;
+// }
+// drawHtml(rickAndMortyArray);
+
+
+for (const character of characters) {
+  const card = document.createElement("div");
+  card.className = "card";
+
+	card.innerHTML = `
+  <img class="cardimg" src=${character.image} />
+  <div class="name">${character.name}</div>
+
+  <div>
+    <span class="status status-${character.status}"></span>
+    <span>${character.status}</span>
+  </div>
+  `;
+
+  document.body.appendChild(card);
+}
